@@ -6,10 +6,10 @@ This is an example php application, which can be deployed to APPUiO using the fo
 
 ### Webconsole
 
-* log into your OpenShift V3 Master (eg. https://master.appuio-beta.ch)
+* log into your OpenShift V3 Master (eg. oc login https://atomic1.example.com)
 * Create a new Project
 * "Add to Project" a php:5.6 application
-* name the application for example appuio-php-sti-example and provide the git repository URL, in this example https://github.com/appuio/example-php-sti-helloworld.git
+* name the application for example php-example and provide the git repository URL, in this example https://github.com/gatesch/example-php-sti-helloworld.git
 * the build and deployment is automatically triggered and the example application will be deployed soon
 
 ### CLI / oc Client
@@ -21,9 +21,9 @@ $ oc new-project example-php-sti-helloworld
 
 #### Create Application and expose Service
 ```
-$ oc new-app https://github.com/appuio/example-php-sti-helloworld.git --name=appuio-php-sti-example
+$ oc new-app https://github.com/gatesch/example-php-sti-helloworld.git --name=php-example
 
-$ oc expose service appuio-php-sti-example
+$ oc expose service php-example --hostname=php.example.com
 ```
 
 ## Add Webhook to trigger rebuilds
@@ -31,22 +31,22 @@ $ oc expose service appuio-php-sti-example
 Take the Webhook GitHub URL from
 
 ```
-$ oc describe bc appuio-php-sti-example
+$ oc describe bc php-example
 
-oc describe bc appuio-php-sti-example
-Name:			appuio-php-sti-example
+oc describe bc php-example
+Name:			php-example
 Created:		20 seconds ago
-Labels:			app=appuio-php-sti-example
+Labels:			app=php-example
 Annotations:		openshift.io/generated-by=OpenShiftNewApp
 Latest Version:		1
 Strategy:		Source
 Source Type:		Git
-URL:			https://github.com/appuio/example-php-sti-helloworld.git
+URL:			https://github.com/gatesch/example-php-sti-helloworld.git
 From Image:		ImageStreamTag openshift/php:latest
-Output to:		ImageStreamTag appuio-php-sti-example:latest
+Output to:		ImageStreamTag gatesch-php-sti-example:latest
 Triggered by:		Config, ImageChange
-Webhook GitHub:		https://[Server]/oapi/v1/namespaces/example-php-sti-helloworld/buildconfigs/appuio-php-sti-example/webhooks/[GitHubsecret]/github
-Webhook Generic:	https://[Server]/oapi/v1/namespaces/example-php-sti-helloworld/buildconfigs/appuio-php-sti-example/webhooks/[genericsecret]/generic
+Webhook GitHub:		https://[Server]/oapi/v1/namespaces/example-php-sti-helloworld/buildconfigs/php-example/webhooks/[GitHubsecret]/github
+Webhook Generic:	https://[Server]/oapi/v1/namespaces/example-php-sti-helloworld/buildconfigs/php-example/webhooks/[genericsecret]/generic
 ```
 
 and add the URL as a Webhook in your github Repository, read https://developer.github.com/webhooks/ for more details about github Webhooks
