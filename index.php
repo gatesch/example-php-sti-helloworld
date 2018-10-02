@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Alex PHP Demo</title>
+    <title>HPE PHP Demo</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -38,7 +38,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Alex PHP Demo</a>
+          <a class="navbar-brand" href="#">HPE PHP Demo</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -53,7 +53,7 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>Hallo <?php echo 'Alex'?></h1>
+        <h1>Hallo <?php echo 'HPE'?></h1>
         <p class="lead">Alex Example Source To Image PHP</p>
       </div>
 
